@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J-Games - Juegos Gratis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="https://i.imgur.com/eq4f38i.png" alt="Logo J-Games" class="logo-jgames">
+      <span class="header-title">🎮 J-Games - ¡Tus juegos favoritos gratis! 🎮</span>
+    </div>
+  </header>
+  <div class="buscador-container">
+    <input type="text" id="buscador" placeholder="Buscar juegos...">
+  </div>
+
+  <div class="contenedor">
+    <div class="juego">
+      <img src="https://i.imgur.com/cvYrpTH.png" alt="Arkanoid">
+      <div class="juego-contenido">
+        <h2>Arkanoid</h2>
+        <p>Usa las flechas para mover la barra. Destruye todos los bloques sin dejar caer la pelota.</p>
+        <button onclick="abrirJuego(this, 'https://jason-mf.github.io/JuegosJJ/Arkanoid/')">Jugar</button>
+        <iframe></iframe>
+      </div>
+    </div>
+
+    <div class="juego">
+      <img src="https://i.imgur.com/xzPHqyr.png" alt="Tetris">
+      <div class="juego-contenido">
+        <h2>Tetris</h2>
+        <p>Mueve y rota las piezas para encajarlas. Completa líneas para ganar puntos.</p>
+        <button onclick="abrirJuego(this, 'https://jason-mf.github.io/JuegosJJ/Tetris/index.html')">Jugar</button>
+        <iframe></iframe>
+      </div>
+    </div>
+
+    <div class="juego">
+      <img src="https://i.imgur.com/IsIIuZM.png" alt="Mario Bros 1">
+      <div class="juego-contenido">
+        <h2>Mario Bros 1</h2>
+        <p>Explora el mundo de Mario, salta sobre enemigos y rescata a la princesa.</p>
+        <button onclick="abrirJuego(this, 'https://www.retrogames.cc/embed/44831-super-mario-bros.html')">Jugar</button>
+        <iframe></iframe>
+      </div>
+    </div>
+
+    <div class="juego">
+      <img src="https://i.imgur.com/0dZiWd2.jpeg" alt="Mario Bros 3">
+      <div class="juego-contenido">
+        <h2>Mario Bros 3</h2>
+        <p>Acompaña a Mario en su tercera aventura para salvar el Reino Champiñón.</p>
+        <button onclick="abrirJuego(this, 'https://www.retrogames.cc/embed/42869-super-mario-3-crowned-koopapeach.html')">Jugar</button>
+        <iframe></iframe>
+      </div>
+    </div>
+
+    <div class="juego">
+      <img src="https://i.imgur.com/wv9WBJT.jpeg" alt="Sonic the Hedgehog">
+      <div class="juego-contenido">
+        <h2>Sonic the Hedgehog </h2>
+        <p>Corre con Sonic y supera obstáculos en este clásico de plataformas.</p>
+        <button onclick="abrirJuego(this, 'https://www.retrogames.cc/embed/28249-sonic-the-hedgehog-usa-europe-hack-by-lost-v1-0-sonic-jam-s-easy-mode.html')">Jugar</button>
+        <iframe></iframe>
+      </div>
+    </div>
+
+    <div class="juego">
+      <img src="https://i.imgur.com/GOeeRVM.jpeg" alt="Street Fighter 2">
+      <div class="juego-contenido">
+        <h2>Street Fighter 2</h2>
+        <p>Enfréntate a los mejores luchadores del mundo en este clásico de peleas.</p>
+        <button onclick="abrirJuego(this, 'https://www.retrogames.cc/embed/10042-street-fighter-ii-champion-edition-yyc-bootleg-set-2-920313-etc-bootleg.html')">Jugar</button>
+        <iframe></iframe>
+      </div>
+    </div>
+
+    <div class="juego">
+      <img src="https://i.imgur.com/4bdFQD9.png" alt="Super Smash Bros">
+      <div class="juego-contenido">
+        <h2>Super Smash Bros</h2>
+        <p>Elige a tu personaje favorito y lucha en épicas batallas multijugador.</p>
+        <button onclick="abrirJuego(this, 'https://www.retrogames.cc/embed/32117-super-smash-bros-usa.html')">Jugar</button>
+        <iframe></iframe>
+      </div>
+    </div>
+
+    <div class="juego">
+      <img src="https://i.imgur.com/SKmOqWB.jpeg" alt="Crash Bandicoot">
+      <div class="juego-contenido">
+        <h2>Crash Bandicoot</h2>
+        <p>Acompaña a Crash en su aventura para salvar a su mundo de los malvados planes del Dr. Cortex.</p>
+        <button onclick="abrirJuego(this, 'https://www.retrogames.cc/embed/40784-crash-bandicoot.html')">Jugar</button>
+        <iframe></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <footer id="acerca">
+    <div class="footer-content">
+      <h3>Acerca de Nosotros</h3>
+      <p>J-Games es una plataforma dedicada a ofrecerte los mejores juegos clásicos de manera gratuita. Nuestro objetivo es que disfrutes y revivas los mejores momentos del gaming, ¡sin descargas y desde cualquier dispositivo!</p>
+      <p>Contacto: j.games.sv@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    // Buscador de juegos
+    document.getElementById('buscador').addEventListener('input', function() {
+      const filtro = this.value.toLowerCase();
+      document.querySelectorAll('.juego').forEach(juego => {
+        const titulo = juego.querySelector('h2').textContent.toLowerCase();
+        if (titulo.includes(filtro)) {
+          juego.style.display = '';
+        } else {
+          juego.style.display = 'none';
+        }
+      });
+    });
+
+    // Ordenar juegos alfabéticamente
+    window.addEventListener('DOMContentLoaded', function() {
+      const contenedor = document.querySelector('.contenedor');
+      const juegos = Array.from(contenedor.querySelectorAll('.juego'));
+      juegos.sort((a, b) => {
+        const tituloA = a.querySelector('h2').textContent.toLowerCase();
+        const tituloB = b.querySelector('h2').textContent.toLowerCase();
+        return tituloA.localeCompare(tituloB);
+      });
+      juegos.forEach(juego => contenedor.appendChild(juego));
+    });
+
+    function abrirJuego(boton, url) {
+      const iframe = boton.nextElementSibling;
+      if (iframe.src !== url) {
+        iframe.src = url;
+      }
+      iframe.style.display = 'block';
+      boton.style.display = 'none';
+
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      }
+
+      // Handler para advertencia al salir con Escape
+      function salirHandler(e) {
+        if (e.key === 'Escape' && document.fullscreenElement === iframe) {
+          e.preventDefault();
+          e.stopPropagation();
+          // Mostrar advertencia ANTES de salir de fullscreen
+          if (confirm('¿Estás seguro que quieres salir del juego?')) {
+            if (document.exitFullscreen) document.exitFullscreen();
+            iframe.style.display = 'none';
+            boton.style.display = 'block';
+            iframe.src = '';
+            document.removeEventListener('keydown', salirHandler);
+            document.removeEventListener('fullscreenchange', fullscreenHandler);
+          } else {
+            // Si cancela, mantener fullscreen
+            if (iframe.requestFullscreen) iframe.requestFullscreen();
+          }
+        }
+      }
+
+      function fullscreenHandler() {
+        if (!document.fullscreenElement) {
+          // Si se sale de fullscreen por otro motivo, restaurar botón y ocultar juego
+          boton.style.display = 'block';
+          iframe.style.display = 'none';
+          iframe.src = '';
+          document.removeEventListener('keydown', salirHandler);
+          document.removeEventListener('fullscreenchange', fullscreenHandler);
+        }
+      }
+
+      document.addEventListener('keydown', salirHandler);
+      document.addEventListener('fullscreenchange', fullscreenHandler);
+    }
+  </script>
+</body>
+</html>
